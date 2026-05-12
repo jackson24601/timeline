@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Timeline Sort Game</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Classroom activity</p>
+          <h1 id="page-title">Timeline Sort Game</h1>
+          <p class="hero-text">
+            Add events in the correct order, scramble them, and let students put the
+            timeline back together.
+          </p>
+        </div>
+      </section>
+
+      <section class="card setup-card" id="setup-card" aria-labelledby="setup-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="setup-title">1. Enter the timeline</h2>
+            <p>Type or paste one event per line, already in the correct order.</p>
+          </div>
+          <button class="secondary-button" id="load-example" type="button">
+            Load example
+          </button>
+        </div>
+
+        <label class="textarea-label" for="events-input">Timeline events</label>
+        <textarea
+          id="events-input"
+          rows="9"
+          spellcheck="true"
+          placeholder="Example:
+The first permanent English settlement is founded at Jamestown.
+The Declaration of Independence is signed.
+The U.S. Constitution is ratified."
+        ></textarea>
+
+        <div class="setup-actions">
+          <button id="start-game" type="button">Scramble events</button>
+          <p class="hint">Students can drag events or use the Move up/down buttons.</p>
+        </div>
+        <p class="message" id="setup-message" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="card game-card hidden" id="game-card" aria-labelledby="game-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="game-title">2. Put the events in order</h2>
+            <p>Move the earliest event to the top and the latest event to the bottom.</p>
+          </div>
+          <button class="secondary-button" id="edit-events" type="button">
+            Edit events
+          </button>
+        </div>
+
+        <ol class="timeline-list" id="timeline-list" aria-label="Scrambled timeline events"></ol>
+
+        <div class="game-actions">
+          <button id="check-answer" type="button">Check my timeline</button>
+          <button class="secondary-button" id="reshuffle" type="button">Scramble again</button>
+          <button class="secondary-button" id="show-answer" type="button">Show answer</button>
+        </div>
+        <p class="message" id="game-message" role="status" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
