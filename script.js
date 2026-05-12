@@ -16,6 +16,7 @@ const reshuffleButton = document.querySelector("#reshuffle");
 const showAnswerButton = document.querySelector("#show-answer");
 const setupMessage = document.querySelector("#setup-message");
 const gameMessage = document.querySelector("#game-message");
+const setupCard = document.querySelector("#setup-card");
 const gameCard = document.querySelector("#game-card");
 const timelineList = document.querySelector("#timeline-list");
 
@@ -39,13 +40,15 @@ startGameButton.addEventListener("click", () => {
   correctEvents = events;
   currentEvents = shuffleEvents(events);
   renderTimeline();
+  setupCard.classList.add("hidden");
   gameCard.classList.remove("hidden");
-  showMessage(setupMessage, `${events.length} events scrambled for students.`, "success");
-  showMessage(gameMessage, "Move the events until the timeline looks correct.", "warning");
+  clearMessage(setupMessage);
+  showMessage(gameMessage, `${events.length} events scrambled. Move them into the correct order.`, "warning");
   gameCard.scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 editEventsButton.addEventListener("click", () => {
+  setupCard.classList.remove("hidden");
   eventsInput.focus();
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
